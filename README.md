@@ -17,5 +17,6 @@
 
 4)your cluster is ready.
 
-5)dalete cluster command
-kops delete cluster --name bharathk8s.k8s --state=s3://bharathk8s.k8s --yes
+5)dalete cluster command.
+
+#kops delete cluster --name bharathk8s.k8s --state=s3://bharathk8s.k8s --yes
