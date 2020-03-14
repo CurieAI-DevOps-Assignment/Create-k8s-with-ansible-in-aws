@@ -1,0 +1,21 @@
+---
+    - hosts: kops
+      become: yes
+      become_method: sudo
+      tasks:
+
+        - name: Install kubectl
+          shell: curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
+        - name: Install kops
+          shell: wget https://github.com/kubernetes/kops/releases/download/v1.16.0/kops-linux-amd64
+
+        - name: change permistions to kops
+          shell: chmod 700 kops-linux-amd64
+
+        - name: change permistions to kubectl
+          shell: chmod 700 kubectl
+
+        - name: move kubectl to /usr/local/sbin
+          shell: mv kubectl /usr/local/sbin/kubectl
+
